@@ -13,7 +13,7 @@ var app = express();
 
 //creates the default connection to the database and binds to the error event so errors get printed to console
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://testrina:testrina@ds125469.mlab.com:25469/local_library';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://testrina:testrina@ds125469.mlab.com:25469/local_library';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
